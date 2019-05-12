@@ -9,3 +9,8 @@ sc%>%filter(instnm=="Carnegie Mellon University")
 
 sc%>%filter(instnm=="Carnegie Mellon University")%>%select(instnm,adm_rate,sat_avg )
 ```
+
+
+
+
+sc%>%filter(instnm=="Carnegie Mellon University")%>%select(instnm,adm_rate,sat_avg )
