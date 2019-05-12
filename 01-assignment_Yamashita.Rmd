@@ -1,0 +1,11 @@
+## This sentence says "Hello, World"
+print("Hello, World")
+
+
+## This output shows the adm rate and sat avg of Carnegie Mellon University
+```{r filter_select_arrange}
+## Where are we?
+sc%>%filter(instnm=="Carnegie Mellon University")
+
+sc%>%filter(instnm=="Carnegie Mellon University")%>%select(instnm,adm_rate,sat_avg )
+```
