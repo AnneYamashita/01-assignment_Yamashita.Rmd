@@ -1,16 +1,40 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
 ## This sentence says "Hello, World"
 print("Hello, World")
 
+```{r scorecard} 
+## Clear environment
+rm(list=ls())
+## Get necessary libraries-- won't work the first time, because you need to install them!
+library(tidyverse)
 
-## This output shows the adm rate and sat avg of Carnegie Mellon University
+```
+
+```{r load_data}
+## Load in the data
+load("college.Rdata")
+```
+
 ```{r filter_select_arrange}
 ## Where are we?
 sc%>%filter(instnm=="Carnegie Mellon University")
 
 sc%>%filter(instnm=="Carnegie Mellon University")%>%select(instnm,adm_rate,sat_avg )
 ```
+```{r}
+## Just colleges with admit rates above 25%: order by sat scores (- sat_avg gives descending)
+sc%>%filter(adm_rate>.25)%>%select(instnm,adm_rate,sat_avg)%>%
+  arrange(-sat_avg)
+```
 
 
+```{r summarize}
+## What's the average median cost?
 
-
-sc%>%filter(instnm=="Carnegie Mellon University")%>%select(instnm,adm_rate,sat_avg )
+sc%>%summarize(mean_costt4=mean(costt4_a,na.rm=TRUE))
+```
